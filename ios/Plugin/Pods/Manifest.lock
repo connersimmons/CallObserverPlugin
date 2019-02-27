@@ -1,0 +1,26 @@
+PODS:
+  - Capacitor (0.0.113):
+    - CapacitorCordova (= 0.0.113)
+    - GCDWebServer (~> 3.0)
+  - CapacitorCordova (0.0.113)
+  - GCDWebServer (3.5.2):
+    - GCDWebServer/Core (= 3.5.2)
+  - GCDWebServer/Core (3.5.2)
+
+DEPENDENCIES:
+  - Capacitor
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Capacitor
+    - CapacitorCordova
+    - GCDWebServer
+
+SPEC CHECKSUMS:
+  Capacitor: b37060b0b2685257bedbc69e49a54a74ef30fb9a
+  CapacitorCordova: a923a32bc7ad5f1f3d69664ca86ff69580343ed3
+  GCDWebServer: ead88cd14596dd4eae4f5830b8877c87c8728990
+
+PODFILE CHECKSUM: 5772c11b8262738cd61e67fed91e81268512e63f
+
+COCOAPODS: 1.6.1
