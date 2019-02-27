@@ -4,9 +4,7 @@ declare global {
     }
 }
 export interface CallObserverPlugin {
-    observe(options: {
-        status: string;
-    }): Promise<{
+    observe(): Promise<{
         status: string;
     }>;
 }
