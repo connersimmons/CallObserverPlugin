@@ -5,6 +5,9 @@ declare global {
 }
 export interface CallObserverPlugin {
     observe(): Promise<{
-        status: string;
+        data: PhoneCall[];
     }>;
+}
+export interface PhoneCall {
+    status: string;
 }

@@ -8,12 +8,12 @@ import CallKit
  */
 @objc(CallObserver)
 public class CallObserver: CAPPlugin {
-    let callObserver = CallObserverSingleton.sharedInstance
-    var callStatus = CallStatus.none
     
-    public override init() {
-        super.init()
-        self.callObserver.setDelegate(self, queue: nil)
+    var callStatus = String()
+    
+    public override func load() {
+        let callObserver = CallObserverSingleton.sharedInstance
+        callObserver.setDelegate(self, queue: nil)
     }
     
 //    @objc func echo(_ call: CAPPluginCall) {
@@ -23,27 +23,28 @@ public class CallObserver: CAPPlugin {
 //        ])
 //    }
     
-    @objc func observe(_ call: CAPPluginCall) {
-        call.success([
-            "status": self.callStatus
+    @objc func observe(_ call: CAPPluginCall) {        
+        call.success(["data": [
+            "status": (self.callStatus == "") ? CallStatus.none.rawValue : self.callStatus
+            ]
         ])
     }
 }
 
 extension CallObserver: CXCallObserverDelegate {
     public func callObserver(_ callObserver: CXCallObserver, callChanged call: CXCall) {
-        print("CALL: \(call.description)")
+//        print("CALL: \(call.description)")
         
         if !call.isOutgoing && !call.hasConnected && !call.hasEnded {
             //  Call is incoming
             print("CXCallObserverDelegate: Call is incoming.")
-            self.callStatus = CallStatus.incoming
+            self.callStatus = CallStatus.incoming.rawValue
         }
         
         if call.isOutgoing && !call.hasConnected {
             //  Dialing out
             print("CXCallObserverDelegate: Call is dialing.")
-            self.callStatus = CallStatus.dialing
+            self.callStatus = CallStatus.dialing.rawValue
             
             switch UIApplication.shared.applicationState {
             case .active:
@@ -61,14 +62,16 @@ extension CallObserver: CXCallObserverDelegate {
         if call.hasConnected && !call.hasEnded {
             //  Call is ongoing
             print("CXCallObserverDelegate: Call is ongoing.")
-            self.callStatus = CallStatus.ongoing
+            self.callStatus = CallStatus.ongoing.rawValue
         }
         
         if call.hasEnded {
             //  Call ended
             print("CXCallObserverDelegate: Call has ended.")
-            self.callStatus = CallStatus.ended
+            self.callStatus = CallStatus.ended.rawValue
         }
+        
+        print("CALL STATUS: \(self.callStatus)")
     }
 }
 
@@ -79,7 +82,7 @@ public class CallObserverSingleton {
     
 }
 
-enum CallStatus {
+enum CallStatus: String {
     case none
     case incoming
     case dialing

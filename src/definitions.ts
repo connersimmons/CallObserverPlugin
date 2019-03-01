@@ -1,10 +1,12 @@
 declare global {
-  interface PluginRegistry {
-    CallObserver?: CallObserverPlugin;
-  }
+    interface PluginRegistry {
+        CallObserver?: CallObserverPlugin;
+    }
+}
+export interface CallObserverPlugin {
+  observe(): Promise<{ data: PhoneCall[]}>;
 }
 
-export interface CallObserverPlugin {
-  // observe(options: { status: string }): Promise<{status: string}>;
-  observe(): Promise<{status: string}>;
+export interface PhoneCall {
+  status: string
 }
