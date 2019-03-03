@@ -1,7 +1,7 @@
 
   Pod::Spec.new do |s|
     s.name = 'CallObserver'
-    s.version = '0.1.0'
+    s.version = '0.1.3'
     s.summary = 'CallKit phone call observer.'
     s.license = 'MIT'
     s.homepage = 'https://github.com/csimmonsbluebook/CallObserverPlugin.git'
