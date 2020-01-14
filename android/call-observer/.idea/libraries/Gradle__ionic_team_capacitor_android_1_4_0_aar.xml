@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: ionic-team:capacitor-android:1.4.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8e23b58bf506fbd89220f19bcdcbde97/capacitor-android-1.4.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8e23b58bf506fbd89220f19bcdcbde97/capacitor-android-1.4.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0123b2cfde9439b7805233394b8e6d4a/jetified-capacitor-android-1.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0123b2cfde9439b7805233394b8e6d4a/jetified-capacitor-android-1.4.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ionic-team/capacitor-android/1.4.0/7b2c86f33480a34d54eec71a9c261bdbce838108/capacitor-android-1.4.0-javadoc.jar!/" />

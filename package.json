@@ -1,6 +1,6 @@
 {
   "name": "call-observer",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "CallKit phone call observer.",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -13,7 +13,8 @@
   "author": "Conner Simmons",
   "license": "MIT",
   "dependencies": {
-    "@capacitor/core": "latest"
+    "@capacitor/core": "latest",
+    "jetifier": "^1.6.5"
   },
   "devDependencies": {
     "typescript": "^2.6.2"

@@ -6,8 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -21,6 +19,9 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 @NativePlugin()
 public class CallObserver extends Plugin { //implements ActivityCompat.OnRequestPermissionsResultCallback {
@@ -180,7 +181,8 @@ public class CallObserver extends Plugin { //implements ActivityCompat.OnRequest
         List<String> permissionsNeeded = new ArrayList<>();
 
         for (String perm : this.permissions) {
-            if (ContextCompat.checkSelfPermission(getContext(), perm) != PackageManager.PERMISSION_GRANTED) {
+            int permissionCheck = ContextCompat.checkSelfPermission(getContext(), perm);
+            if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
                 permissionsNeeded.add(perm);
             }
         }
